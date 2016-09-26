@@ -7,4 +7,9 @@ Pod::Spec.new do |spec|
   spec.license             = { :type => 'MIT' }
   spec.source              = { :git => 'https://github.com/MhdHejazi/X.git' }
   spec.source_files        = 'Sources/*.{h,m,swift}'
+  
+  spec.osx.deployment_target       = "10.10"
+  spec.ios.deployment_target       = "8.0"
+  spec.tvos.deployment_target      = "9.0"
+  spec.watchos.deployment_target   = "3.0"
 end
