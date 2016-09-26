@@ -15,6 +15,12 @@ Xcode 7.1 or higher is required.
 github "soffes/X"
 ```
 
+For [CocoaPods](https://cocoapods.org/), add the following to your Podfile:
+
+``` ruby
+pod 'X', :git => 'git@github.com:MhdHejazi/X.git'
+```
+
 ## Usage
 
 X provides several `typealias`es to make dealing with AppKit/UIKit types that are similar. Currently, X includes:
