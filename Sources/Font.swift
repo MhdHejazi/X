@@ -9,21 +9,9 @@
 #if os(OSX)
 	import AppKit.NSFont
 	public typealias Font = NSFont
-
-	extension Font {
-		public var symbolicTraits: FontDescriptorSymbolicTraits {
-			return fontDescriptor.symbolicTraits
-		}
-	}
 #else
 	import UIKit.UIFont
 	public typealias Font = UIFont
-
-	extension Font {
-		public var symbolicTraits: FontDescriptorSymbolicTraits {
-			return fontDescriptor.symbolicTraits
-		}
-	}
 #endif
 
 
