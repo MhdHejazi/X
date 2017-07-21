@@ -12,7 +12,7 @@
 
 	extension Font {
 		public var symbolicTraits: FontDescriptorSymbolicTraits {
-			return FontDescriptorSymbolicTraits(symbolicTraits: fontDescriptor.symbolicTraits)
+			return fontDescriptor.symbolicTraits
 		}
 	}
 #else
@@ -31,10 +31,10 @@ extension Font {
 	public var fontWithMonospacedNumbers: Font {
 		#if os(OSX)
 			let fontDescriptor = self.fontDescriptor.addingAttributes([
-				NSFontFeatureSettingsAttribute: [
+				NSFontDescriptor.AttributeName.featureSettings: [
 					[
-						NSFontFeatureTypeIdentifierKey: kNumberSpacingType,
-						NSFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector
+						NSFontDescriptor.FeatureKey.typeIdentifier: kNumberSpacingType,
+						NSFontDescriptor.FeatureKey.selectorIdentifier: kMonospacedNumbersSelector
 					]
 				]
 			])
@@ -51,10 +51,10 @@ extension Font {
 			return Font(descriptor: fontDescriptor, size: pointSize)
 		#else
 			let fontDescriptor = UIFontDescriptor(name: fontName, size: pointSize).addingAttributes([
-				UIFontDescriptorFeatureSettingsAttribute: [
+				UIFontDescriptor.AttributeName.featureSettings: [
 					[
-						UIFontFeatureTypeIdentifierKey: kNumberSpacingType,
-						UIFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector
+						UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType,
+						UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector
 					]
 				]
 			])
