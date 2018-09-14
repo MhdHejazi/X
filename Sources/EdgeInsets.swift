@@ -28,7 +28,6 @@ extension EdgeInsets {
 	}
 
 	public func insetRect(rect: CGRect) -> CGRect {
-		#if os(macOS)
 			if (top + bottom > rect.size.height) || (left + right > rect.size.width) {
 				return .null
 			}
@@ -39,8 +38,5 @@ extension EdgeInsets {
 			insetRect.size.height -= top + bottom
 			insetRect.size.width -= left + right
 			return insetRect
-		#else
-			return UIEdgeInsetsInsetRect(rect, self)
-		#endif
 	}
 }

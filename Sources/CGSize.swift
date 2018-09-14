@@ -24,11 +24,11 @@ import CoreGraphics
 
 extension CGSize {
 	public var stringRepresentation: String {
-		return NSStringFromCGSize(self)
+		return NSCoder.string(for: self)
 	}
 
 	public init(string: String) {
-		self = CGSizeFromString(string)
+		self = NSCoder.cgSize(for: string)
 	}
 
 	public var integral: CGSize {

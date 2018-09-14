@@ -24,10 +24,10 @@ import CoreGraphics
 
 extension CGPoint {
 	public var stringRepresentation: String {
-		return NSStringFromCGPoint(self)
+		return NSCoder.string(for: self)
 	}
 
 	public init(string: String) {
-		self = CGPointFromString(string)
+		self = NSCoder.cgPoint(for: string)
 	}
 }

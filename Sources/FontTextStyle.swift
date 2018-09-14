@@ -8,7 +8,7 @@
 
 #if os(iOS) || os(tvOS) || os(watchOS)
 	import UIKit
-	public typealias FontTextStyle = UIFontTextStyle
+	public typealias FontTextStyle = UIFont.TextStyle
 #elseif os(OSX)
 	import AppKit
 

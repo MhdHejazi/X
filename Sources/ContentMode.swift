@@ -24,5 +24,5 @@
 	}
 #elseif os(iOS) || os(tvOS)
 	import UIKit.UIView
-	public typealias ContentMode = UIViewContentMode
+	public typealias ContentMode = UIView.ContentMode
 #endif

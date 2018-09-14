@@ -24,11 +24,11 @@ import CoreGraphics
 
 extension CGRect {
 	public var stringRepresentation: String {
-		return NSStringFromCGRect(self)
+		return NSCoder.string(for: self)
 	}
 
 	public init(string: String) {
-		self = CGRectFromString(string)
+		self = NSCoder.cgRect(for: string)
 	}
 
 	public func aspectFit(_ boundingRect: CGRect) -> CGRect {

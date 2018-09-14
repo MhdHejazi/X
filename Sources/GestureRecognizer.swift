@@ -12,6 +12,6 @@
 	@available(OSX 10.10, *) public typealias TapGestureRecognizer = NSClickGestureRecognizer
 #else
 	import UIKit.UIGestureRecognizer
-	public typealias GestureRecognizerState = UIGestureRecognizerState
+	public typealias GestureRecognizerState = UIGestureRecognizer.State
 	public typealias TapGestureRecognizer = UITapGestureRecognizer
 #endif
