@@ -9,25 +9,20 @@
 import Foundation
 import CoreGraphics
 
-#if os(OSX)
-	public func NSStringFromCGPoint(_ point: CGPoint) -> String! {
-		return NSStringFromPoint(point)
-	}
-
-	public func CGPointFromString(_ string: String!) -> CGPoint {
-		return NSPointFromString(string) as CGPoint
-	}
-#else
-	import UIKit
-#endif
-
-
 extension CGPoint {
 	public var stringRepresentation: String {
+#if os(OSX)
+		return NSStringFromPoint(self)
+#else
 		return NSCoder.string(for: self)
+#endif
 	}
 
 	public init(string: String) {
+#if os(OSX)
+		self = NSPointFromString(string)
+#else
 		self = NSCoder.cgPoint(for: string)
+#endif
 	}
 }

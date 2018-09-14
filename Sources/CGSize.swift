@@ -9,26 +9,21 @@
 import Foundation
 import CoreGraphics
 
-#if os(OSX)
-	public func NSStringFromCGSize(_ size: CGSize) -> String! {
-		return NSStringFromSize(size)
-	}
-
-	public func CGSizeFromString(_ string: String!) -> CGSize {
-		return NSSizeFromString(string) as CGSize
-	}
-#else
-	import UIKit
-#endif
-
-
 extension CGSize {
 	public var stringRepresentation: String {
+#if os(OSX)
+		return NSStringFromSize(self)
+#else
 		return NSCoder.string(for: self)
+#endif
 	}
-
+	
 	public init(string: String) {
+#if os(OSX)
+		self = NSSizeFromString(string)
+#else
 		self = NSCoder.cgSize(for: string)
+#endif
 	}
 
 	public var integral: CGSize {

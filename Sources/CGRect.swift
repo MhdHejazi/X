@@ -9,26 +9,21 @@
 import Foundation
 import CoreGraphics
 
-#if os(OSX)
-	public func NSStringFromCGRect(_ rect: CGRect) -> String! {
-		return NSStringFromRect(rect)
-	}
-
-	public func CGRectFromString(_ string: String!) -> CGRect {
-		return NSRectFromString(string) as CGRect
-	}
-#else
-	import UIKit
-#endif
-
-
 extension CGRect {
 	public var stringRepresentation: String {
+#if os(OSX)
+		return NSStringFromRect(self)
+#else
 		return NSCoder.string(for: self)
+#endif
 	}
-
+	
 	public init(string: String) {
+#if os(OSX)
+		self = NSRectFromString(string)
+#else
 		self = NSCoder.cgRect(for: string)
+#endif
 	}
 
 	public func aspectFit(_ boundingRect: CGRect) -> CGRect {
