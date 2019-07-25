@@ -90,6 +90,8 @@ extension CGRect {
 			rect.origin.x = bounds.size.width - rect.size.width
 			rect.origin.y = bounds.size.height - rect.size.height
 			return rect
+		@unknown default:
+			return bounds
 		}
 	}
 }
